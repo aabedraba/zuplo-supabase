@@ -1,3 +1,12 @@
 {
-  "policies": []
+  "policies": [
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/hello-world)"
+      },
+      "name": "custom-code-inbound",
+      "policyType": "custom-code-inbound"
+    }
+  ]
 }
