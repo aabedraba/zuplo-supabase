@@ -13,9 +13,12 @@ const supabase = createClient(
 );
 
 // Upload file using standard upload
-async function uploadFile(file: File, name: string, logger: Logger) {
+async function uploadFile(file, name, logger: Logger) {
   try {
-    const { data, error } = await supabase.storage.from("files").upload(name, file);
+    const { data, error } = await supabase.storage
+      .from("files")
+      // a uuid perhaps would be better here
+      .upload(name, file);
 
     if (error) {
       logger.error("An error happened uploading file: ", error);
@@ -58,7 +61,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     return JsonErrorResponse(`Propery "duration" not found, or not a string`);
   }
 
-  const uploadResult = await uploadFile(file, context.log);
+  const uploadResult = await uploadFile(file, name, context.log);
 
   if (!uploadResult) {
     return JsonErrorResponse(`An error happened uploading file`);
@@ -72,6 +75,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
 
   if (insertError) {
     context.log.error("An error happened inserting track: ", insertError);
+    // probably it's best to delete the file here?
     return JsonErrorResponse(`An error happened inserting track`, 500);
   }
 
