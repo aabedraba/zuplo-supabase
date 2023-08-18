@@ -13,9 +13,9 @@ const supabase = createClient(
 );
 
 // Upload file using standard upload
-async function uploadFile(file, logger: Logger) {
+async function uploadFile(file: File, name: string, logger: Logger) {
   try {
-    const { data, error } = await supabase.storage.from("files").upload(file);
+    const { data, error } = await supabase.storage.from("files").upload(name, file);
 
     if (error) {
       logger.error("An error happened uploading file: ", error);

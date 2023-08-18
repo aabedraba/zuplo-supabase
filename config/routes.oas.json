@@ -15,16 +15,12 @@
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://echo.zuplo.io"
-            }
+            "export": "default",
+            "module": "$import(./modules/upload)",
+            "options": {}
           },
           "policies": {
-            "inbound": [
-              "custom-code-inbound"
-            ]
+            "inbound": []
           }
         },
         "operationId": "6c48b918-06e4-4110-bc45-25160a681e12"
