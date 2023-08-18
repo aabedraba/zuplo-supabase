@@ -3,7 +3,7 @@
     {
       "handler": {
         "export": "default",
-        "module": "$import(./modules/hello-world)"
+        "module": "$import(./modules/upload)"
       },
       "name": "custom-code-inbound",
       "policyType": "custom-code-inbound"
