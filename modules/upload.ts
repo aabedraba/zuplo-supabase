@@ -44,7 +44,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
   const duration = formData.get("duration");
 
   if (!file || !(file instanceof File)) {
-    return JsonErrorResponse(`Propery "file" not found, or not a file`);
+    return JsonErrorResponse(`Propery "trackFile" not found, or not a file`);
   }
 
   if (!name || typeof name !== "string") {
