@@ -25,6 +25,69 @@
         },
         "operationId": "6c48b918-06e4-4110-bc45-25160a681e12"
       }
+    },
+    "/create-uuid": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Create UUID",
+        "description": "Creates a single UUID in the database.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "createUUID",
+            "module": "$import(./modules/createUUID)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "create-uuid"
+      }
+    },
+    "/create-uuid-batch": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Create UUID Batch",
+        "description": "Creates multiple UUIDs in the database.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "createUUIDBatch",
+            "module": "$import(./modules/createUUID)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "create-uuid-batch"
+      }
+    },
+    "/create-uuid-with-metadata": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Create UUID with Metadata",
+        "description": "Creates a UUID with metadata in the database.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "createUUIDWithMetadata",
+            "module": "$import(./modules/createUUID)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "create-uuid-with-metadata"
+      }
     }
   }
 }
